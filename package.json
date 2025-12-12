@@ -8,25 +8,25 @@
     "packages/*"
   ],
   "scripts": {
-    "dev": "bun run --filter '*' dev",
-    "dev:web": "bun run --filter web dev",
-    "dev:api": "bun run --filter api dev",
-    "build": "bun run --filter '*' build",
-    "build:web": "bun run --filter web build",
-    "build:api": "bun run --filter api build",
-    "test": "bun test",
-    "lint": "bun run --filter '*' lint",
+    "dev": "pnpm --filter '*' dev",
+    "dev:web": "pnpm --filter web dev",
+    "dev:api": "pnpm --filter api dev",
+    "build": "pnpm --filter '*' build",
+    "build:web": "pnpm --filter web build",
+    "build:api": "pnpm --filter api build",
+    "test": "pnpm test",
+    "lint": "pnpm --filter '*' lint",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
-    "clean": "bun run --filter '*' clean && rm -rf node_modules",
-    "typecheck": "bun run --filter '*' typecheck"
+    "clean": "pnpm --filter '*' clean && rm -rf node_modules",
+    "typecheck": "pnpm --filter '*' typecheck"
   },
   "devDependencies": {
-    "@types/bun": "latest",
     "prettier": "^3.1.1",
     "typescript": "^5.3.3"
   },
   "engines": {
     "node": ">=20.0.0",
-    "bun": ">=1.0.0"
-  }
+    "pnpm": ">=8.0.0"
+  },
+  "packageManager": "pnpm@8.15.0"
 }
