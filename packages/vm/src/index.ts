@@ -10,7 +10,7 @@ export interface VMConfig {
   cpu: number;
   memory: string;
   storage: string;
-  metadata?: Record<string, any>;
+  metadata?: Record<string, unknown>;
 }
 
 export interface VMInstance {
@@ -19,6 +19,12 @@ export interface VMInstance {
   status: 'creating' | 'running' | 'stopped' | 'error';
   ipAddress?: string;
   createdAt: Date;
+}
+
+export interface CommandResult {
+  output: string;
+  exitCode: number;
+  error?: string;
 }
 
 export class DaytonaVMManager {
@@ -42,11 +48,14 @@ export class DaytonaVMManager {
 
     this.instances.set(instance.id, instance);
     
-    // Simulate VM creation
-    setTimeout(() => {
-      instance.status = 'running';
-      instance.ipAddress = '192.168.1.100';
-    }, 1000);
+    // Simulate VM creation - in production, this would be an actual API call
+    await new Promise<void>((resolve) => {
+      setTimeout(() => {
+        instance.status = 'running';
+        instance.ipAddress = '192.168.1.100';
+        resolve();
+      }, 1000);
+    });
 
     return instance;
   }
@@ -79,7 +88,7 @@ export class DaytonaVMManager {
     return Array.from(this.instances.values());
   }
 
-  async executeCommand(id: string, command: string): Promise<any> {
+  async executeCommand(id: string, command: string): Promise<CommandResult> {
     const instance = this.instances.get(id);
     if (!instance || instance.status !== 'running') {
       throw new Error(`VM instance is not running: ${id}`);

@@ -2,6 +2,9 @@
  * Base types for the NEXA ecosystem
  */
 
+// Common metadata type for better type safety
+export type Metadata = Record<string, unknown>;
+
 export interface NexaConfig {
   version: string;
   ecosystem: EcosystemConfig;
@@ -20,7 +23,7 @@ export interface ToolConfig {
   description: string;
   version: string;
   enabled: boolean;
-  metadata?: Record<string, any>;
+  metadata?: Metadata;
 }
 
 export interface AgentConfig {
@@ -30,7 +33,7 @@ export interface AgentConfig {
   type: 'coding' | 'analysis' | 'automation' | 'custom';
   capabilities: string[];
   enabled: boolean;
-  metadata?: Record<string, any>;
+  metadata?: Metadata;
 }
 
 export interface MCPConfig {
@@ -39,7 +42,7 @@ export interface MCPConfig {
   protocol: string;
   version: string;
   enabled: boolean;
-  metadata?: Record<string, any>;
+  metadata?: Metadata;
 }
 
 export interface SkillConfig {
@@ -48,7 +51,7 @@ export interface SkillConfig {
   description: string;
   category: string;
   enabled: boolean;
-  metadata?: Record<string, any>;
+  metadata?: Metadata;
 }
 
 export interface User {
@@ -59,7 +62,7 @@ export interface User {
   updatedAt: Date;
 }
 
-export interface ApiResponse<T = any> {
+export interface ApiResponse<T = unknown> {
   success: boolean;
   data?: T;
   error?: string;
