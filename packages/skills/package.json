@@ -1,0 +1,20 @@
+{
+  "name": "@nexa/skills",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Skills ecosystem for NEXA AI assistants",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "rm -rf dist node_modules",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@nexa/shared": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
+}

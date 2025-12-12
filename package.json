@@ -1,0 +1,32 @@
+{
+  "name": "nexa",
+  "version": "0.1.0",
+  "private": true,
+  "description": "NEXA - Next + Intelligence + Action: AI Coding Ecosystem Platform",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "bun run --filter '*' dev",
+    "dev:web": "bun run --filter web dev",
+    "dev:api": "bun run --filter api dev",
+    "build": "bun run --filter '*' build",
+    "build:web": "bun run --filter web build",
+    "build:api": "bun run --filter api build",
+    "test": "bun test",
+    "lint": "bun run --filter '*' lint",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
+    "clean": "bun run --filter '*' clean && rm -rf node_modules",
+    "typecheck": "bun run --filter '*' typecheck"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "prettier": "^3.1.1",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "bun": ">=1.0.0"
+  }
+}
