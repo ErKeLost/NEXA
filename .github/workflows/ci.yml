@@ -6,9 +6,14 @@ on:
   pull_request:
     branches: [main, develop]
 
+permissions:
+  contents: read
+
 jobs:
   lint-and-typecheck:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - uses: actions/checkout@v4
       
@@ -28,6 +33,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     needs: lint-and-typecheck
+    permissions:
+      contents: read
     steps:
       - uses: actions/checkout@v4
       
@@ -53,6 +60,8 @@ jobs:
   test:
     runs-on: ubuntu-latest
     needs: lint-and-typecheck
+    permissions:
+      contents: read
     steps:
       - uses: actions/checkout@v4
       
