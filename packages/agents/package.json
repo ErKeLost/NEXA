@@ -12,9 +12,12 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@ai-sdk/openai": "^2.0.64",
+    "@mastra/core": "^0.24.8",
     "@nexa/shared": "workspace:*",
     "@nexa/tools": "workspace:*",
-    "@nexa/skills": "workspace:*"
+    "@nexa/skills": "workspace:*",
+    "zod": "^4.1.13"
   },
   "devDependencies": {
     "typescript": "^5.3.3"
