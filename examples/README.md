@@ -5,7 +5,9 @@ This directory contains practical examples demonstrating how to use the NEXA eco
 ## Available Examples
 
 ### 1. Complete Workflow (`complete-workflow.ts`)
+
 A comprehensive example showing all NEXA ecosystems working together:
+
 - Agent orchestration
 - Skill execution
 - Tool usage
@@ -13,19 +15,23 @@ A comprehensive example showing all NEXA ecosystems working together:
 - VM management
 
 **Run:**
+
 ```bash
-bun run examples/complete-workflow.ts
+pnpm tsx examples/complete-workflow.ts
 ```
 
 ### 2. Agent Orchestration (`agent-orchestration.ts`)
+
 Demonstrates multi-agent coordination:
+
 - Creating multiple specialized agents
 - Orchestrating complex workflows
 - Task distribution
 
 **Run:**
+
 ```bash
-bun run examples/agent-orchestration.ts
+pnpm tsx examples/agent-orchestration.ts
 ```
 
 ## Prerequisites
@@ -33,11 +39,13 @@ bun run examples/agent-orchestration.ts
 Before running examples:
 
 1. Install dependencies:
+
 ```bash
-bun install
+pnpm install
 ```
 
 2. Set up environment variables (for VM examples):
+
 ```bash
 export DAYTONA_API_URL=http://localhost:8080
 export DAYTONA_API_KEY=your-key
@@ -47,6 +55,7 @@ export DAYTONA_API_KEY=your-key
 
 1. Create a new TypeScript file in this directory
 2. Import the packages you need:
+
 ```typescript
 import { generateId } from '@nexa/shared';
 import { createAgent } from '@nexa/agents';
@@ -55,11 +64,12 @@ import { createTool } from '@nexa/tools';
 ```
 
 3. Write your example code
-4. Run with: `bun run examples/your-example.ts`
+4. Run with: `pnpm tsx examples/your-example.ts`
 
 ## Example Patterns
 
 ### Using Tools
+
 ```typescript
 import { createTool } from '@nexa/tools';
 
@@ -68,6 +78,7 @@ const result = await tool.run(params);
 ```
 
 ### Using Agents
+
 ```typescript
 import { createAgent } from '@nexa/agents';
 
@@ -78,6 +89,7 @@ await agent.shutdown();
 ```
 
 ### Using Skills
+
 ```typescript
 import { createSkill } from '@nexa/skills';
 
@@ -86,6 +98,7 @@ const result = await skill.execute(params);
 ```
 
 ### Using MCP
+
 ```typescript
 import { createMCPClient } from '@nexa/mcp';
 
@@ -96,6 +109,7 @@ await client.disconnect();
 ```
 
 ### Using VM
+
 ```typescript
 import { createVMManager } from '@nexa/vm';
 

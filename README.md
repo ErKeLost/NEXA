@@ -11,7 +11,7 @@ NEXA is a comprehensive AI coding ecosystem platform built on a modern monorepo 
 - **🔌 MCP Integration**: Model Context Protocol support for seamless AI model interactions
 - **⚡ Skills System**: Extensible skills for code generation, analysis, and refactoring
 - **💻 VM Integration**: Isolated development environments powered by Daytona
-- **🎨 Modern Stack**: Built with Next.js, NestJS, Bun, and TypeScript
+- **🎨 Modern Stack**: Built with Next.js, NestJS, pnpm, and TypeScript
 
 ## 📦 Project Structure
 
@@ -33,11 +33,13 @@ NEXA/
 ## 🚀 Tech Stack
 
 ### Frontend
+
 - **Framework**: Next.js 14 with App Router
 - **Styling**: Tailwind CSS
 - **Language**: TypeScript
 
 ### Backend
+
 - **Framework**: NestJS
 - **Database**: NeonDB (PostgreSQL) with Drizzle ORM
 - **Authentication**: Better-Auth
@@ -46,28 +48,32 @@ NEXA/
 - **VM**: Daytona
 
 ### Monorepo
-- **Package Manager**: Bun
-- **Build System**: Bun workspaces
+
+- **Package Manager**: pnpm
+- **Build System**: Turborepo
 
 ## 📋 Prerequisites
 
-- **Bun**: >= 1.0.0
+- **pnpm**: >= 8.0.0
 - **Node.js**: >= 20.0.0
 
 ## 🛠️ Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/ErKeLost/NEXA.git
 cd NEXA
 ```
 
 2. Install dependencies:
+
 ```bash
-bun install
+pnpm install
 ```
 
 3. Set up environment variables:
+
 ```bash
 # For the API
 cp apps/api/.env.example apps/api/.env.local
@@ -75,26 +81,27 @@ cp apps/api/.env.example apps/api/.env.local
 ```
 
 4. Start the development servers:
+
 ```bash
 # Start all services
-bun dev
+pnpm dev
 
 # Or start individually
-bun dev:web    # Frontend only
-bun dev:api    # Backend only
+pnpm dev:web    # Frontend only
+pnpm dev:api    # Backend only
 ```
 
 ## 🎯 Development
 
 ### Available Scripts
 
-- `bun dev` - Start all development servers
-- `bun build` - Build all applications
-- `bun test` - Run all tests
-- `bun lint` - Lint all packages
-- `bun format` - Format code with Prettier
-- `bun typecheck` - Type check all packages
-- `bun clean` - Clean all build artifacts and dependencies
+- `pnpm dev` - Start all development servers
+- `pnpm build` - Build all applications
+- `pnpm test` - Run all tests
+- `pnpm lint` - Lint all packages
+- `pnpm format` - Format code with Prettier
+- `pnpm typecheck` - Type check all packages
+- `pnpm clean` - Clean all build artifacts and dependencies
 
 ### Frontend Development
 
@@ -102,7 +109,7 @@ The frontend is accessible at `http://localhost:3000`
 
 ```bash
 cd apps/web
-bun dev
+pnpm dev
 ```
 
 ### Backend Development
@@ -112,37 +119,46 @@ API documentation is available at `http://localhost:3001/api/docs`
 
 ```bash
 cd apps/api
-bun dev
+pnpm dev
 ```
 
 ## 📚 Ecosystem Packages
 
 ### @nexa/shared
+
 Common types, utilities, and constants shared across all packages.
 
 ### @nexa/mcp
+
 Model Context Protocol integration for AI model interactions.
 
 ### @nexa/skills
+
 Extensible skills system including:
+
 - Code generation
 - Code analysis
 - Refactoring
 
 ### @nexa/tools
+
 Development tools including:
+
 - Code formatter
 - Linter
 - Build tools
 - Test runner
 
 ### @nexa/agents
+
 AI agents for:
+
 - Automated coding
 - Code analysis
 - Workflow automation
 
 ### @nexa/vm
+
 Virtual machine integration with Daytona for isolated development environments.
 
 ## 🏗️ Architecture
@@ -171,9 +187,10 @@ MIT
 ## 🙏 Acknowledgments
 
 Built with modern tools and frameworks:
+
 - Next.js
 - NestJS
-- Bun
+- pnpm
 - Drizzle ORM
 - NeonDB
 - Better-Auth

@@ -1,6 +1,5 @@
 # Dependencies
 node_modules
-.bun-cache
 .pnp
 .pnp.js
 
@@ -19,7 +18,6 @@ dist
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-bun-debug.log*
 lerna-debug.log*
 
 # Local env files

@@ -5,8 +5,9 @@ Get NEXA up and running in minutes!
 ## ⚡ Prerequisites
 
 Make sure you have these installed:
-- **Bun** >= 1.0.0 ([Install Bun](https://bun.sh/docs/installation))
-- **Node.js** >= 20.0.0 (for compatibility)
+
+- **pnpm** >= 8.0.0 ([Install pnpm](https://pnpm.io/installation))
+- **Node.js** >= 20.0.0
 
 ## 🚀 Installation
 
@@ -20,7 +21,7 @@ cd NEXA
 ### 2. Install Dependencies
 
 ```bash
-bun install
+pnpm install
 ```
 
 This will install dependencies for all workspaces (apps and packages).
@@ -30,10 +31,11 @@ This will install dependencies for all workspaces (apps and packages).
 ### Start Everything
 
 ```bash
-bun dev
+pnpm dev
 ```
 
-This starts both the frontend and backend:
+This starts both the frontend and backend using Turborepo:
+
 - **Frontend**: http://localhost:3000
 - **Backend API**: http://localhost:3001
 - **API Docs**: http://localhost:3001/api/docs
@@ -41,19 +43,21 @@ This starts both the frontend and backend:
 ### Start Individual Services
 
 #### Frontend Only
+
 ```bash
-bun dev:web
+pnpm dev:web
 # or
 cd apps/web
-bun dev
+pnpm dev
 ```
 
 #### Backend Only
+
 ```bash
-bun dev:api
+pnpm dev:api
 # or
 cd apps/api
-bun dev
+pnpm dev
 ```
 
 ## 🔧 Configuration
@@ -61,11 +65,13 @@ bun dev
 ### Backend Configuration
 
 1. Copy the environment template:
+
 ```bash
 cp apps/api/.env.example apps/api/.env.local
 ```
 
 2. Edit `apps/api/.env.local` with your settings:
+
 ```env
 DATABASE_URL=postgresql://user:password@localhost:5432/nexa
 REDIS_URL=redis://localhost:6379
@@ -80,12 +86,14 @@ DAYTONA_API_KEY=your-key
 For full functionality, you'll need:
 
 #### PostgreSQL (via NeonDB or local)
+
 ```bash
 # Using Docker
 docker run --name nexa-postgres -e POSTGRES_PASSWORD=password -p 5432:5432 -d postgres:15
 ```
 
 #### Redis
+
 ```bash
 # Using Docker
 docker run --name nexa-redis -p 6379:6379 -d redis:7-alpine
@@ -110,36 +118,36 @@ import { createVMManager } from '@nexa/vm';
 ### Building Packages
 
 ```bash
-# Build all packages
-bun build
+# Build all packages (with Turborepo caching)
+pnpm build
 
 # Build specific package
 cd packages/shared
-bun run build
+pnpm build
 ```
 
 ## 🧪 Testing
 
 ```bash
 # Run all tests
-bun test
+pnpm test
 
 # Run tests for specific package
 cd packages/agents
-bun test
+pnpm test
 ```
 
 ## 🎨 Code Quality
 
 ```bash
 # Format code
-bun format
+pnpm format
 
 # Lint code
-bun lint
+pnpm lint
 
 # Type check
-bun typecheck
+pnpm typecheck
 ```
 
 ## 📚 Next Steps
@@ -162,16 +170,18 @@ bun typecheck
 
 ## 🆘 Troubleshooting
 
-### Bun Installation Issues
+### pnpm Installation Issues
+
 ```bash
-# Update Bun
-bun upgrade
+# Update pnpm
+pnpm add -g pnpm@latest
 
 # Clear cache
-rm -rf ~/.bun/install/cache
+pnpm store prune
 ```
 
 ### Port Already in Use
+
 ```bash
 # Change ports in configuration
 # Frontend: Edit apps/web/package.json dev script
@@ -179,26 +189,38 @@ rm -rf ~/.bun/install/cache
 ```
 
 ### Dependencies Issues
+
 ```bash
 # Clean install
-bun clean
-bun install
+pnpm clean
+pnpm install
 ```
 
 ### Build Errors
+
 ```bash
 # Clean and rebuild
-bun clean
-bun install
-bun build
+pnpm clean
+pnpm install
+pnpm build
+```
+
+### Turborepo Cache Issues
+
+```bash
+# Clear Turbo cache
+rm -rf .turbo
+pnpm build --force
 ```
 
 ## 💡 Tips
 
-- Use **bun dev** during development for hot reload
+- Use **pnpm dev** during development for hot reload
+- Turborepo caches build outputs for faster rebuilds
 - Check **http://localhost:3001/api/docs** for API documentation
 - All packages support TypeScript for better DX
 - Use the monorepo structure to share code easily
+- Run `turbo run build --dry` to see the task execution plan
 
 ## 🤝 Getting Help
 

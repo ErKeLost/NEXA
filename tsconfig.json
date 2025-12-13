@@ -3,7 +3,7 @@
     "target": "ES2022",
     "lib": ["ES2022"],
     "module": "ESNext",
-    "moduleResolution": "bundler",
+    "moduleResolution": "pnpmdler",
     "resolveJsonModule": true,
     "allowJs": true,
     "checkJs": false,
@@ -30,8 +30,7 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedIndexedAccess": true,
-    "skipLibCheck": true,
-    "types": ["bun-types"]
+    "skipLibCheck": true
   },
   "exclude": ["node_modules", "dist", ".next", "build"]
 }

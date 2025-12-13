@@ -4,7 +4,7 @@
 
 ### Prerequisites
 
-- Bun >= 1.0.0
+- pnpm >= 8.0.0
 - Node.js >= 20.0.0
 - Git
 
@@ -16,7 +16,7 @@ git clone https://github.com/ErKeLost/NEXA.git
 cd NEXA
 
 # Install dependencies
-bun install
+pnpm install
 ```
 
 ## Development Workflow
@@ -25,46 +25,46 @@ bun install
 
 ```bash
 # Start all services (frontend + backend)
-bun dev
+pnpm dev
 
 # Or start individually
-bun dev:web    # Frontend only (http://localhost:3000)
-bun dev:api    # Backend only (http://localhost:3001)
+pnpm dev:web    # Frontend only (http://localhost:3000)
+pnpm dev:api    # Backend only (http://localhost:3001)
 ```
 
 ### Building
 
 ```bash
 # Build all packages
-bun build
+pnpm build
 
 # Build specific app
-bun build:web
-bun build:api
+pnpm build:web
+pnpm build:api
 ```
 
 ### Testing
 
 ```bash
 # Run all tests
-bun test
+pnpm test
 
 # Run tests for specific package
 cd packages/shared
-bun test
+pnpm test
 ```
 
 ### Linting and Formatting
 
 ```bash
 # Lint all packages
-bun lint
+pnpm lint
 
 # Format code
-bun format
+pnpm format
 
 # Type check
-bun typecheck
+pnpm typecheck
 ```
 
 ## Package Development
@@ -72,11 +72,13 @@ bun typecheck
 ### Creating a New Package
 
 1. Create package directory:
+
 ```bash
 mkdir -p packages/my-package/src
 ```
 
 2. Create `package.json`:
+
 ```json
 {
   "name": "@nexa/my-package",
@@ -100,6 +102,7 @@ mkdir -p packages/my-package/src
 ```
 
 3. Create `tsconfig.json`:
+
 ```json
 {
   "extends": "../../tsconfig.json",
@@ -118,11 +121,11 @@ mkdir -p packages/my-package/src
 
 ```bash
 # Add to root
-bun add -d <package>
+pnpm add -D <package> -w
 
 # Add to specific workspace
 cd apps/web
-bun add <package>
+pnpm add <package>
 ```
 
 ### Using Workspace Dependencies
@@ -155,6 +158,7 @@ apps/web/
 ### Adding a New Page
 
 1. Create file in `apps/web/src/app/`:
+
 ```tsx
 // apps/web/src/app/tools/page.tsx
 export default function ToolsPage() {
@@ -227,6 +231,7 @@ export class MyService {
 ### Drizzle ORM Setup
 
 1. Create schema file:
+
 ```typescript
 // apps/api/src/database/schema.ts
 import { pgTable, serial, text, timestamp } from 'drizzle-orm/pg-core';
@@ -240,24 +245,28 @@ export const users = pgTable('users', {
 ```
 
 2. Generate migration:
+
 ```bash
 cd apps/api
-bun run drizzle-kit generate:pg
+pnpm drizzle-kit generate:pg
 ```
 
 3. Run migration:
+
 ```bash
-bun run drizzle-kit push:pg
+pnpm drizzle-kit push:pg
 ```
 
 ## Environment Variables
 
 ### Frontend (.env.local)
+
 ```env
 NEXT_PUBLIC_API_URL=http://localhost:3001
 ```
 
 ### Backend (apps/api/.env.local)
+
 ```env
 DATABASE_URL=postgresql://...
 REDIS_URL=redis://localhost:6379
@@ -270,11 +279,13 @@ DAYTONA_API_KEY=...
 ## Debugging
 
 ### Frontend
+
 - Use React DevTools
 - Check browser console
 - Next.js error overlay
 
 ### Backend
+
 - Use NestJS Logger
 - Check terminal output
 - API docs at `/api/docs`
@@ -290,7 +301,7 @@ DAYTONA_API_KEY=...
       "request": "launch",
       "name": "Debug API",
       "cwd": "${workspaceFolder}/apps/api",
-      "runtimeExecutable": "bun",
+      "runtimeExecutable": "pnpm",
       "runtimeArgs": ["run", "start:debug"]
     }
   ]
@@ -308,33 +319,45 @@ DAYTONA_API_KEY=...
 
 ## Troubleshooting
 
-### Bun Installation Issues
+### pnpm Installation Issues
+
 ```bash
-# Update Bun
-bun upgrade
+# Update pnpm
+pnpm add -g pnpm@latest
 
 # Clear cache
-rm -rf ~/.bun/install/cache
+pnpm store prune
 ```
 
 ### TypeScript Errors
+
 ```bash
 # Clean and rebuild
-bun clean
-bun install
-bun typecheck
+pnpm clean
+pnpm install
+pnpm typecheck
 ```
 
 ### Next.js Build Issues
+
 ```bash
 cd apps/web
 rm -rf .next
-bun run build
+pnpm build
+```
+
+### Turborepo Cache Issues
+
+```bash
+# Clear Turbo cache
+rm -rf .turbo
+pnpm build --force
 ```
 
 ## Resources
 
-- [Bun Documentation](https://bun.sh/docs)
+- [pnpm Documentation](https://pnpm.io/)
+- [Turborepo Documentation](https://turbo.build/repo/docs)
 - [Next.js Documentation](https://nextjs.org/docs)
 - [NestJS Documentation](https://docs.nestjs.com)
 - [Drizzle ORM Documentation](https://orm.drizzle.team/docs)

@@ -7,6 +7,7 @@ Thank you for your interest in contributing to NEXA! We welcome contributions fr
 ### Reporting Bugs
 
 If you find a bug, please create an issue with:
+
 - A clear title and description
 - Steps to reproduce
 - Expected behavior
@@ -16,6 +17,7 @@ If you find a bug, please create an issue with:
 ### Suggesting Features
 
 Feature requests are welcome! Please create an issue with:
+
 - A clear description of the feature
 - Why it would be useful
 - Example use cases
@@ -25,7 +27,7 @@ Feature requests are welcome! Please create an issue with:
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
 3. Make your changes
-4. Run tests and linting (`bun test && bun lint`)
+4. Run tests and linting (`pnpm test && pnpm lint`)
 5. Commit your changes (`git commit -m 'Add amazing feature'`)
 6. Push to the branch (`git push origin feature/amazing-feature`)
 7. Open a Pull Request
@@ -38,10 +40,10 @@ git clone https://github.com/YOUR_USERNAME/NEXA.git
 cd NEXA
 
 # Install dependencies
-bun install
+pnpm install
 
 # Start development
-bun dev
+pnpm dev
 ```
 
 ### Coding Standards
@@ -50,11 +52,12 @@ bun dev
 - Write meaningful commit messages
 - Add tests for new features
 - Update documentation as needed
-- Run `bun format` before committing
+- Run `pnpm format` before committing
 
 ### Commit Messages
 
 We use conventional commits:
+
 - `feat:` New feature
 - `fix:` Bug fix
 - `docs:` Documentation changes

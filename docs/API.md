@@ -20,9 +20,11 @@ Authorization: Bearer <your-token>
 ### Health Check
 
 #### GET /
+
 Get API status
 
 **Response:**
+
 ```json
 {
   "status": "healthy",
@@ -41,9 +43,11 @@ Get API status
 ### Authentication
 
 #### POST /api/auth/login
+
 Login user
 
 **Request:**
+
 ```json
 {
   "email": "user@example.com",
@@ -52,6 +56,7 @@ Login user
 ```
 
 **Response:**
+
 ```json
 {
   "success": true,
@@ -67,9 +72,11 @@ Login user
 ```
 
 #### POST /api/auth/register
+
 Register new user
 
 **Request:**
+
 ```json
 {
   "email": "user@example.com",
@@ -81,9 +88,11 @@ Register new user
 ### Tools
 
 #### GET /api/tools
+
 List all tools
 
 **Response:**
+
 ```json
 {
   "success": true,
@@ -100,9 +109,11 @@ List all tools
 ```
 
 #### POST /api/tools/:id/run
+
 Run a specific tool
 
 **Request:**
+
 ```json
 {
   "params": {
@@ -115,12 +126,15 @@ Run a specific tool
 ### Agents
 
 #### GET /api/agents
+
 List all agents
 
 #### POST /api/agents/:id/execute
+
 Execute agent task
 
 **Request:**
+
 ```json
 {
   "task": {
@@ -135,31 +149,37 @@ Execute agent task
 ### MCP
 
 #### GET /api/mcp
+
 List MCP integrations
 
 #### POST /api/mcp/:id/send
+
 Send message via MCP
 
 ### Skills
 
 #### GET /api/skills
+
 List all skills
 
 #### POST /api/skills/:id/execute
+
 Execute a skill
 
 ### VM
 
 #### POST /api/vm/create
+
 Create a new VM instance
 
 **Request:**
+
 ```json
 {
   "config": {
     "id": "vm-1",
     "name": "dev-environment",
-    "image": "ubuntu:22.04",
+    "image": "upnpmtu:22.04",
     "cpu": 2,
     "memory": "4GB",
     "storage": "20GB"
@@ -168,9 +188,11 @@ Create a new VM instance
 ```
 
 #### POST /api/vm/:id/execute
+
 Execute command in VM
 
 **Request:**
+
 ```json
 {
   "command": "npm install"
