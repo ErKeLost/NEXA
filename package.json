@@ -8,20 +8,21 @@
     "packages/*"
   ],
   "scripts": {
-    "dev": "pnpm --filter '*' dev",
-    "dev:web": "pnpm --filter web dev",
-    "dev:api": "pnpm --filter api dev",
-    "build": "pnpm --filter '*' build",
-    "build:web": "pnpm --filter web build",
-    "build:api": "pnpm --filter api build",
-    "test": "pnpm test",
-    "lint": "pnpm --filter '*' lint",
+    "dev": "turbo run dev",
+    "dev:web": "turbo run dev --filter=web",
+    "dev:api": "turbo run dev --filter=api",
+    "build": "turbo run build",
+    "build:web": "turbo run build --filter=web",
+    "build:api": "turbo run build --filter=api",
+    "test": "turbo run test",
+    "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
-    "clean": "pnpm --filter '*' clean && rm -rf node_modules",
-    "typecheck": "pnpm --filter '*' typecheck"
+    "clean": "turbo run clean && rm -rf node_modules",
+    "typecheck": "turbo run typecheck"
   },
   "devDependencies": {
     "prettier": "^3.1.1",
+    "turbo": "^2.6.3",
     "typescript": "^5.3.3"
   },
   "engines": {
