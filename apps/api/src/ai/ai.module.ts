@@ -1,6 +1,6 @@
 import { Global, Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { mastra } from '@nexa/agents';
+import { mastra } from '@nexa/mastra';
 import { MASTRA } from './tokens';
 
 @Global()

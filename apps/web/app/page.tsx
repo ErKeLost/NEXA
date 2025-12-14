@@ -18,8 +18,8 @@ const tasks = [
   {
     title: "Chat-driven build",
     description: "Prototype new feature from prompt, track run and artifacts.",
-    href: "/chat",
-    cta: "Open chat",
+    href: "/project",
+    cta: "Open project",
   },
   {
     title: "Run queue",
@@ -64,7 +64,7 @@ export default function HomePage() {
         </div>
         <div className="flex gap-3">
           <Button asChild variant="secondary" className="bg-white text-slate-900 hover:bg-white/90">
-            <Link href="/chat">Chat with Agent</Link>
+            <Link href="/project">Chat with Agent</Link>
           </Button>
           <Button asChild variant="outline" className="border-white/20 text-white hover:bg-white/5">
             <Link href="/runs">View Runs</Link>

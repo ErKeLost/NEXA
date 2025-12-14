@@ -11,7 +11,7 @@ import { DRIZZLE } from '../database/tokens';
 import { Inject } from '@nestjs/common';
 import { DbInstance } from '../database/database.module';
 import { projects } from '../database/schema';
-import { runCodegenJob } from '@nexa/agents';
+import { runCodegenJob } from '@nexa/mastra';
 import { eq } from 'drizzle-orm';
 
 const chatSchema = z.object({

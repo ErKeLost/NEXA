@@ -12,7 +12,9 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@nexa/shared": "workspace:*"
+    "@mastra/core": "^0.24.8",
+    "@nexa/shared": "workspace:*",
+    "zod": "^4.1.13"
   },
   "devDependencies": {
     "typescript": "^5.3.3"

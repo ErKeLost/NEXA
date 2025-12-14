@@ -1,8 +1,8 @@
 {
-  "name": "@nexa/agents",
+  "name": "@nexa/mastra",
   "version": "0.1.0",
   "private": true,
-  "description": "AI agents ecosystem for NEXA",
+  "description": "Mastra integration layer for NEXA: env validation, storage, runtime context, toolsets, and shared instance.",
   "main": "./src/index.ts",
   "types": "./src/index.ts",
   "scripts": {
@@ -16,10 +16,9 @@
     "@mastra/core": "^0.24.8",
     "@mastra/memory": "^0.15.13",
     "@mastra/pg": "^0.17.10",
-    "@openrouter/ai-sdk-provider": "^0.4.3",
+    "@nexa/agents": "workspace:*",
     "@nexa/shared": "workspace:*",
     "@nexa/tools": "workspace:*",
-    "@nexa/skills": "workspace:*",
     "zod": "^4.1.13"
   },
   "devDependencies": {

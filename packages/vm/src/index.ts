@@ -28,13 +28,15 @@ export interface CommandResult {
 }
 
 export class DaytonaVMManager {
-  private apiUrl: string;
-  private apiKey: string;
   private instances: Map<string, VMInstance> = new Map();
 
-  constructor(apiUrl: string, apiKey: string) {
-    this.apiUrl = apiUrl;
-    this.apiKey = apiKey;
+  constructor(
+    private readonly apiUrl: string,
+    private readonly apiKey: string,
+  ) { }
+
+  getApiUrl(): string {
+    return this.apiUrl;
   }
 
   async createVM(config: VMConfig): Promise<VMInstance> {
@@ -47,7 +49,7 @@ export class DaytonaVMManager {
     };
 
     this.instances.set(instance.id, instance);
-    
+
     // Simulate VM creation - in production, this would be an actual API call
     await new Promise<void>((resolve) => {
       setTimeout(() => {

@@ -31,7 +31,7 @@ export class CodeFormatterTool extends BaseTool {
 }
 
 export class LinterTool extends BaseTool {
-  async run(params: { code: string; rules: string[] }): Promise<any> {
+  async run(_params: { code: string; rules: string[] }): Promise<any> {
     // Implementation for linting
     return {
       issues: [],
@@ -42,7 +42,7 @@ export class LinterTool extends BaseTool {
 }
 
 export class BuildTool extends BaseTool {
-  async run(params: { projectPath: string; config: any }): Promise<any> {
+  async run(_params: { projectPath: string; config: any }): Promise<any> {
     // Implementation for building
     return {
       success: true,
@@ -52,7 +52,7 @@ export class BuildTool extends BaseTool {
 }
 
 export class TestRunnerTool extends BaseTool {
-  async run(params: { testPath: string; config: any }): Promise<any> {
+  async run(_params: { testPath: string; config: any }): Promise<any> {
     // Implementation for running tests
     return {
       passed: 0,
@@ -79,3 +79,9 @@ export function createTool(type: string, config: ToolConfig): Tool {
 }
 
 export * from '@nexa/shared';
+export * from './mastra/webSearch';
+export * from './mastra/cryptoMarket';
+export * from './mastra/nanoBananaImage';
+export * from './mastra/figmaReader';
+export * from './mastra/figmaImageFetcher';
+export * from './mastra/citySim';

@@ -7,7 +7,7 @@ import { DRIZZLE } from '../database/tokens';
 import { DbInstance } from '../database/database.module';
 import { projects, runs } from '../database/schema';
 import type { RunJobData } from './runs.service';
-import { runCodegenJob } from '@nexa/agents';
+import { runCodegenJob } from '@nexa/mastra';
 
 @Processor(RUN_QUEUE)
 export class RunsProcessor {

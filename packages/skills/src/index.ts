@@ -20,7 +20,7 @@ export abstract class BaseSkill implements Skill {
 
   abstract execute(params: any): Promise<any>;
 
-  validate(params: any): boolean {
+  validate(_params: any): boolean {
     return true;
   }
 }
@@ -36,7 +36,7 @@ export class CodeGenerationSkill extends BaseSkill {
 }
 
 export class CodeAnalysisSkill extends BaseSkill {
-  async execute(params: { code: string; language: string }): Promise<any> {
+  async execute(_params: { code: string; language: string }): Promise<any> {
     // Implementation for code analysis
     return {
       analysis: 'Code analysis results',
