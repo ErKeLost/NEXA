@@ -1,204 +1,50 @@
 # NEXA
 
-**Next + Intelligence + Action**
+NEXA is a pnpm monorepo for an AI coding workspace built around a Vite frontend, a lightweight Node API, a background worker, and reusable Mastra-based packages.
 
-NEXA is a comprehensive AI coding ecosystem platform built on a modern monorepo architecture. It provides a browser-based development environment similar to Cursor, with an extensible ecosystem of tools, agents, MCP integrations, and skills.
+## Structure
 
-## 🌟 Features
-
-- **🛠️ Tools Ecosystem**: Powerful development tools for code generation, formatting, linting, building, and testing
-- **🤖 Agents Ecosystem**: Intelligent AI agents for coding, analysis, and automation workflows
-- **🔌 MCP Integration**: Model Context Protocol support for seamless AI model interactions
-- **⚡ Skills System**: Extensible skills for code generation, analysis, and refactoring
-- **💻 VM Integration**: Isolated development environments powered by Daytona
-- **🎨 Modern Stack**: Built with Next.js, NestJS, pnpm, and TypeScript
-
-## 📦 Project Structure
-
-```
+```text
 NEXA/
 ├── apps/
-│   ├── web/          # Next.js frontend application
-│   └── api/          # NestJS backend application
+│   ├── web/       # Vite + React frontend
+│   ├── api/       # Hono-based HTTP API
+│   └── worker/    # BullMQ worker
 ├── packages/
-│   ├── shared/       # Shared types, utilities, and constants
-│   ├── mcp/          # Model Context Protocol integration
-│   ├── skills/       # Skills ecosystem
-│   ├── tools/        # Development tools
-│   ├── agents/       # AI agents
-│   └── vm/           # Virtual machine integration (Daytona)
-└── docs/             # Documentation
+│   ├── agents/
+│   ├── mastra/
+│   ├── tools/
+│   └── shared/
+└── docs/
 ```
 
-## 🚀 Tech Stack
+## Stack
 
-### Frontend
+- Frontend: Vite, React 19, Tailwind CSS 4, shadcn/ui
+- Backend: Node 20+, Hono, Drizzle, Neon, BullMQ, Redis
+- AI runtime: Mastra, OpenAI/OpenRouter-compatible agents and tools
+- Workspace: pnpm workspaces
 
-- **Framework**: Next.js 14 with App Router
-- **Styling**: Tailwind CSS
-- **Language**: TypeScript
-
-### Backend
-
-- **Framework**: NestJS
-- **Database**: NeonDB (PostgreSQL) with Drizzle ORM
-- **Authentication**: Better-Auth
-- **Agent Framework**: Mastra
-- **Queue**: BullMQ (Redis)
-- **VM**: Daytona
-
-### Monorepo
-
-- **Package Manager**: pnpm
-- **Build System**: Turborepo
-
-## 📋 Prerequisites
-
-- **pnpm**: >= 8.0.0
-- **Node.js**: >= 20.0.0
-
-## 🛠️ Installation
-
-1. Clone the repository:
-
-```bash
-git clone https://github.com/ErKeLost/NEXA.git
-cd NEXA
-```
-
-2. Install dependencies:
+## Commands
 
 ```bash
 pnpm install
-```
-
-3. Set up environment variables:
-
-```bash
-# For the API
-cp apps/api/.env.example apps/api/.env.local
-# Edit apps/api/.env.local with your configuration
-```
-
-4. Start the development servers:
-
-```bash
-# Start all services
 pnpm dev
-
-# Or start individually
-pnpm dev:web    # Frontend only
-pnpm dev:api    # Backend only
+pnpm build
+pnpm typecheck
 ```
 
-## 🎯 Development
-
-### Available Scripts
-
-- `pnpm dev` - Start all development servers
-- `pnpm build` - Build all applications
-- `pnpm test` - Run all tests
-- `pnpm lint` - Lint all packages
-- `pnpm format` - Format code with Prettier
-- `pnpm typecheck` - Type check all packages
-- `pnpm clean` - Clean all build artifacts and dependencies
-
-### Frontend Development
-
-The frontend is accessible at `http://localhost:3000`
+Useful filters:
 
 ```bash
-cd apps/web
-pnpm dev
+pnpm dev:web
+pnpm dev:api
+pnpm dev:worker
 ```
 
-### Backend Development
+## Notes
 
-The backend API is accessible at `http://localhost:3001`
-API documentation is available at `http://localhost:3001/api/docs`
-
-```bash
-cd apps/api
-pnpm dev
-```
-
-## 📚 Ecosystem Packages
-
-### @nexa/shared
-
-Common types, utilities, and constants shared across all packages.
-
-### @nexa/mcp
-
-Model Context Protocol integration for AI model interactions.
-
-### @nexa/skills
-
-Extensible skills system including:
-
-- Code generation
-- Code analysis
-- Refactoring
-
-### @nexa/tools
-
-Development tools including:
-
-- Code formatter
-- Linter
-- Build tools
-- Test runner
-
-### @nexa/agents
-
-AI agents for:
-
-- Automated coding
-- Code analysis
-- Workflow automation
-
-### @nexa/vm
-
-Virtual machine integration with Daytona for isolated development environments.
-
-## 🏗️ Architecture
-
-NEXA follows a modular monorepo architecture:
-
-1. **Frontend (apps/web)**: Provides the user interface for interacting with the platform
-2. **Backend (apps/api)**: RESTful API with GraphQL support for all ecosystem services
-3. **Packages**: Reusable modules that can be composed to build applications
-
-## 🔐 Security
-
-- Authentication via Better-Auth
-- Secure API endpoints
-- Environment variable management
-- CORS configuration
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## 📄 License
-
-MIT
-
-## 🙏 Acknowledgments
-
-Built with modern tools and frameworks:
-
-- Next.js
-- NestJS
-- pnpm
-- Drizzle ORM
-- NeonDB
-- Better-Auth
-- Mastra
-- Daytona
-- Redis
-- BullMQ
-
----
-
-**NEXA** - Building the future of AI-powered development 🚀
+- `apps/web` no longer uses Next.js.
+- `apps/api` no longer uses NestJS.
+- The reusable business logic stays in `packages/*`.
+- If you want to adopt Vite+ later, this layout is ready for `vp run` style task orchestration.

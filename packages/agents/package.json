@@ -16,10 +16,8 @@
     "@mastra/core": "^0.24.8",
     "@mastra/memory": "^0.15.13",
     "@mastra/pg": "^0.17.10",
-    "@openrouter/ai-sdk-provider": "^0.4.3",
     "@nexa/shared": "workspace:*",
     "@nexa/tools": "workspace:*",
-    "@nexa/skills": "workspace:*",
     "zod": "^4.1.13"
   },
   "devDependencies": {

@@ -1,10 +1,5 @@
 import { Agent } from '@mastra/core/agent';
-import { createOpenRouter } from '@openrouter/ai-sdk-provider';
 import { cryptoMarketTool } from '@nexa/tools';
-
-const openrouter = createOpenRouter({
-  apiKey: process.env.OPENROUTER_API_KEY,
-});
 
 export const cryptoAnalystAgent = new Agent({
   name: 'crypto-analyst-agent',
@@ -19,8 +14,7 @@ export const cryptoAnalystAgent = new Agent({
    - 场景分析：可以按「短线波动」「中长期发展因素」两个角度简单拆解；
 4. 不要给出“买入/卖出/ALL IN”之类的具体操作建议，只做客观信息解释和风险提醒。
 5. 回答语言跟随用户：用户用中文你就用中文，用户用英文你就用英文。
-`.trim(),
+  `.trim(),
   model: 'openrouter/anthropic/claude-sonnet-4.5',
   tools: { cryptoMarketTool },
-  apiProviders: { openrouter },
 });

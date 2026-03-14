@@ -2,27 +2,25 @@
   "name": "nexa",
   "version": "0.1.0",
   "private": true,
-  "description": "NEXA - Next + Intelligence + Action: AI Coding Ecosystem Platform",
+  "description": "NEXA - Vite-based AI coding ecosystem platform",
   "workspaces": [
     "apps/*",
     "packages/*"
   ],
   "scripts": {
-    "dev": "turbo run dev",
-    "dev:web": "turbo run dev --filter=web",
-    "dev:api": "turbo run dev --filter=api",
-    "build": "turbo run build",
-    "build:web": "turbo run build --filter=web",
-    "build:api": "turbo run build --filter=api",
-    "test": "turbo run test",
-    "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
-    "clean": "turbo run clean && rm -rf node_modules",
-    "typecheck": "turbo run typecheck"
+    "dev": "pnpm --parallel --filter @nexa/web --filter @nexa/api --filter @nexa/worker dev",
+    "dev:web": "pnpm --filter @nexa/web dev",
+    "dev:api": "pnpm --filter @nexa/api dev",
+    "dev:worker": "pnpm --filter @nexa/worker dev",
+    "build": "pnpm -r build",
+    "test": "pnpm -r test",
+    "lint": "pnpm -r lint",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md,css,html}\"",
+    "clean": "pnpm -r clean",
+    "typecheck": "pnpm -r typecheck"
   },
   "devDependencies": {
     "prettier": "^3.1.1",
-    "turbo": "^2.6.3",
     "typescript": "^5.3.3"
   },
   "engines": {

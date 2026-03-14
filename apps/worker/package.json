@@ -1,7 +1,7 @@
 {
-  "name": "@nexa/api",
+  "name": "@nexa/worker",
   "version": "0.0.1",
-  "description": "HTTP API for NEXA",
+  "description": "BullMQ worker for NEXA",
   "private": true,
   "type": "module",
   "scripts": {
@@ -9,25 +9,20 @@
     "dev": "tsx watch src/index.ts",
     "start": "node dist/index.js",
     "lint": "tsc --noEmit",
-    "test": "echo \"No API tests configured yet\"",
+    "test": "echo \"No worker tests configured yet\"",
     "clean": "rm -rf dist",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@hono/node-server": "^1.14.4",
     "@neondatabase/serverless": "^1.0.2",
     "@nexa/mastra": "workspace:*",
-    "@nexa/shared": "workspace:*",
     "bullmq": "^5.34.7",
     "dotenv": "^16.4.7",
     "drizzle-orm": "^0.44.6",
-    "hono": "^4.6.15",
-    "ioredis": "^5.4.2",
-    "zod": "^4.1.13"
+    "ioredis": "^5.4.2"
   },
   "devDependencies": {
     "@types/node": "^22.10.7",
-    "eslint": "^9.18.0",
     "tsx": "^4.19.2",
     "typescript": "^5.7.3"
   }

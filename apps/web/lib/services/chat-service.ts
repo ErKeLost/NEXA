@@ -10,7 +10,7 @@ export type ChatResponse = {
 };
 
 const API_BASE =
-  process.env.NEXT_PUBLIC_API_BASE_URL?.replace(/\/$/, "") ??
+  import.meta.env.VITE_API_BASE_URL?.replace(/\/$/, "") ??
   "http://localhost:3001";
 
 export async function sendChat(req: ChatRequest): Promise<ChatResponse> {
